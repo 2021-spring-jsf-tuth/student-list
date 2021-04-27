@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-student',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddStudentComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+    , private location: Location
+  ) { }
 
   ngOnInit(): void {
   }
 
+  addStudent() {
+    //this.router.navigateByUrl("/");
+    this.location.back();
+  }
 }
