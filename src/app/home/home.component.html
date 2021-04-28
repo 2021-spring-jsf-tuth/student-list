@@ -2,14 +2,21 @@
     Home
 </h3>
 
-<ul>
-    <li>Larry</li>
-    <li>Curly</li>
-    <li>Moe</li>
-</ul>
+<h4
+    *ngIf="students.length == 0"
+>
+    No students
+</h4>
 
-<br>
-<br>
+<ul
+    *ngIf="students.length > 0"
+>
+    <li
+        *ngFor="let s of students"
+    >
+        {{ s.name }} ({{ s.program }})
+    </li>
+</ul>
 
 <button
     (click)="addStudent()"
