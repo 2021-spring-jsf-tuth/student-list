@@ -20,7 +20,10 @@ export class HomeComponent implements OnInit {
   students: Student[] = [];
 
   ngOnInit(): void {
-    this.students = this.studentDataSvc.getStudents();
+    this.students = this.studentDataSvc
+      .getStudents()
+      .sort((a, b) => a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1)
+    ;
   }
 
   addStudent() {
